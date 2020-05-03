@@ -1,0 +1,35 @@
+pipeline
+{
+    agent any
+    stages
+    {
+
+        stage('Git-Checkout')
+        {
+            steps
+            {
+                echo 'Pulling the Maven Git repo'
+                git "https://github.com/henil2097/SPE_Assignment.git"
+            }
+        }
+
+        stage("Clean the maven project")
+        {
+            steps
+            {
+                echo "Cleaning the project"
+                sh " mvn clean"
+            }
+        }
+
+        stage("Install the project")
+        {
+            steps
+            {
+                echo "Installing the project"
+                sh "mvn install"
+            }
+        }
+
+    }
+}
