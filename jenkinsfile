@@ -31,14 +31,5 @@ pipeline
             }
         }
 
-        stage("Running the main Calculator file")
-        {
-            steps
-            {
-                echo "Run the Calculator"
-                sh "java -cp target/SPECalculator.jar Calculator"
-            }
-        }
-
     }
 }
