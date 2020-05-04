@@ -13,14 +13,32 @@ pipeline
             }
         }
 
-        stage("Clean and compile the maven project")
+        stage("Clean the maven project")
         {
             steps
             {
-                echo "Cleaning and compiling the project"
-                sh " mvn clean compile"
+                echo "Cleaning the project"
+                sh " mvn clean"
             }
         }
+
+        stage("Compile the maven project")
+        {
+            steps
+                {
+                    echo "Compiling the project"
+                    sh " mvn compile"
+                }
+        }
+
+        stage("Test the project")
+         {
+            steps
+            {
+                echo "Testing the project"
+                    sh "mvn test"
+            }
+         }
 
         stage("Install the project")
         {
