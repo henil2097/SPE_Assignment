@@ -1,9 +1,14 @@
 pipeline
 {
+    environment
+    {
+        registry = "henil2097/spe_calculator"
+        registryCredential = 'DockerHub'
+        dockerImage = ''
+    }
     agent any
     stages
     {
-
         stage('Git-Checkout')
         {
             steps
@@ -18,7 +23,7 @@ pipeline
             steps
             {
                 echo "Cleaning the project"
-                sh " mvn clean"
+                sh "mvn clean"
             }
         }
 
@@ -27,7 +32,7 @@ pipeline
             steps
                 {
                     echo "Compiling the project"
-                    sh " mvn compile"
+                    sh "mvn compile"
                 }
         }
 
@@ -46,6 +51,30 @@ pipeline
             {
                 echo "Installing the project"
                 sh "mvn install"
+            }
+        }
+
+        stage('Building Image')
+        {
+            steps
+            {
+                script
+                {
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Deploy Image to DockerHub')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry( '', registryCredential )
+                    {
+                        dockerImage.push()
+                    }
+                }
             }
         }
 
