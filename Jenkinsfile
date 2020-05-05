@@ -1,5 +1,11 @@
 pipeline
 {
+    environment
+    {
+        registry = "henil2097/spe_calculator"
+        registryCredential = 'DockerHub'
+        dockerImage = ''
+    }
     agent any
     stages
     {
@@ -45,6 +51,30 @@ pipeline
             {
                 echo "Installing the project"
                 sh "mvn install"
+            }
+        }
+
+        stage('Building Image')
+        {
+            steps
+            {
+                script
+                {
+                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                }
+            }
+        }
+        stage('Deploy Image to DockerHub')
+        {
+            steps
+            {
+                script
+                {
+                    docker.withRegistry( '', registryCredential )
+                    {
+                        dockerImage.push()
+                    }
+                }
             }
         }
 
