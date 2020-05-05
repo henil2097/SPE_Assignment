@@ -10,7 +10,7 @@ public class Calculator {
         int flag=0,ch;
         int num1,num2;
         Scanner reader = new Scanner(System.in);
-        System.out.println("com.calculator.Calculator System");
+        System.out.println("Calculator System");
         do
         {
             System.out.println("Option Menu");
