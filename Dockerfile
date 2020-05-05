@@ -5,7 +5,7 @@
 ###############################################################
 
 # use the base image
-FROM ubuntu_18.04.3_lts-openjdk_1.8.0_242
+FROM dockerfiles/ubuntu_18.04.3_lts-openjdk_1.8.0_242
 
 # File Author
 MAINTAINER Henil_Patel
