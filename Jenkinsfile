@@ -1,11 +1,8 @@
 node
 {
-    environment
-    {
-        registry = "henil2097/spe_calculator"
-        registryCredential = 'DockerHub'
-        dockerImage = ''
-    }
+    def registry = "henil2097/spe_calculator"
+    def registryCredential = 'DockerHub'
+    def dockerImage = ''
 
     stage('Git-Checkout')
     {
