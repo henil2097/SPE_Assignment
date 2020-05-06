@@ -16,10 +16,10 @@ public class CalculatorTest {
     @Test
     public void testAdd(){
         //assertTrue(true);
-        int a = 15;
+        int a = 10;
         int b = 25;
-        long expectedResult = 40;
-        long result = calculator.add(a,b);
+        long expectedResult = 250;
+        long result = calculator.mul(a,b);
         assertEquals(expectedResult,result);
     }
 }
