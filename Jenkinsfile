@@ -46,7 +46,9 @@ node
     stage('Push Image to DockerHub')
     {
         docker.withRegistry( '', registryCredential )
-        dockerImage.push()
+        {
+            dockerImage.push()
+        }
     }
 
     stage('Deploy on Node')
