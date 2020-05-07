@@ -13,7 +13,11 @@ public class Calculator {
     public static int sub(int a, int b){ return a-b; }
 
     public static void main(String[] args) {
-        if(args.length!=0 && args.length==3){
+        if(args.length > 0){
+            for(int i=0;i<args.length;i++){
+                System.out.print(args[i]+" ");
+            }
+            System.out.println();
             int num1 = Integer.parseInt(args[0]);
             String op = args[1];
             int num2 = Integer.parseInt(args[2]);
@@ -31,7 +35,7 @@ public class Calculator {
                 case "-":
                     System.out.println(sub(num1,num2));
                     break;
-                default: System.out.println("Exiting program due to invalid input");
+                default: System.out.println("Exiting program due to invalid input 1");
             }
         }
         else{
