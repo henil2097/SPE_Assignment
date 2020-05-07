@@ -20,4 +20,4 @@ ADD target/calculator-1.0-SNAPSHOT.jar .
 ENTRYPOINT ["/usr/bin/java", "-cp", "calculator-1.0-SNAPSHOT.jar", "com/calculator/Calculator"]
 
 # Command line input
-CMD ["10 * 25"]
+CMD 10 * 25
