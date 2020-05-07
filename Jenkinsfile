@@ -44,7 +44,8 @@ node
     {
         docker.withRegistry( '', registryCredential )
         {
-            dockerImage.push()
+            dockerImage.push('latest')
+
         }
     }
 
