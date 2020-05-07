@@ -1,8 +1,7 @@
-###############################################################
-#               Dockerfile to Deploy                          #
-# 'target/calculator-1.0-SNAPSHOT.jar'                        #
-#  into '/ubuntu_18.04.3_lts-openjdk_1.8.0_242' Docker Image  #
-###############################################################
+#########################################################################
+# Creating Docker Image to deploy  'target/calculator-1.0-SNAPSHOT.jar' #
+#  from 'henil2097/ubuntu_18.04.3_lts-openjdk_1.8.0_242' base Image     #
+#########################################################################
 
 # use the base image
 FROM henil2097/ubuntu_18.04.3_lts-openjdk_1.8.0_242
@@ -19,5 +18,5 @@ ADD target/calculator-1.0-SNAPSHOT.jar .
 # Default container command
 ENTRYPOINT ["/usr/bin/java", "-cp", "calculator-1.0-SNAPSHOT.jar", "com/calculator/Calculator"]
 
-# Command line input
-CMD 10 * 25
+# CMD line input
+CMD ["10" , "*" , "25"]
