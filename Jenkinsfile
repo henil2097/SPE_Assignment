@@ -49,5 +49,16 @@ node
         }
     }
 
-
+    stage('Deploy on Node')
+    {
+        step([
+            $class: "RundeckNotifier",
+            rundeckInstance: "rundeck",
+            jobId: "e27f1095-bcec-4d38-8fc9-fa516e747119",
+            includeRundeckLogs: true,
+            shouldWaitForRundeckJob: true,
+            shouldFailTheBuild: true,
+            tailLog: true
+        ])
+    }
 }
